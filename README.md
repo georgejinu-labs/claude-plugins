@@ -10,6 +10,10 @@ https://github.com/georgejinu-labs/claude-marketplace
 
 - `plugins/dev-toolkit` — commit hygiene, debugging, dependency audits, doc
   sync, env checks, SQL review, test generation, todo sweeps.
+- `plugins/knowledge-capture` — `/doc-learning` captures something you just
+  learned and publishes it to Confluence via the Atlassian Rovo connector.
+  Requires the Atlassian claude.ai connector to be authorized with Confluence
+  access (Jira-only scopes aren't enough).
 
 ## Adding a new plugin
 
