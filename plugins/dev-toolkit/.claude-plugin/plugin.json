@@ -1,7 +1,7 @@
 {
   "name": "dev-toolkit",
   "displayName": "Dev Toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Personal dev workflow skills: commit hygiene, debugging, dependency audits, doc sync, env checks, SQL review, test generation, and todo sweeps.",
   "author": {
     "name": "georgejinu",
