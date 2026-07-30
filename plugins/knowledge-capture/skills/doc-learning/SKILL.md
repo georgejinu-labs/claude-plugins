@@ -1,6 +1,6 @@
 ---
 name: doc-learning
-description: Capture something you just learned (a debugging insight, a new pattern, a gotcha) and publish it as a Confluence page via the Atlassian Rovo connector, so future-you can find it again.
+description: Capture something you just learned (a debugging insight, a new pattern, a gotcha) and publish it as a Confluence page via the bundled Atlassian remote MCP server, so future-you can find it again.
 disable-model-invocation: true
 ---
 
@@ -11,6 +11,14 @@ disable-model-invocation: true
 !`git diff --stat 2>/dev/null`
 
 ## Instructions
+
+0. **Confirm Atlassian access.** This plugin declares the official Atlassian
+   remote MCP server (`atlassian`, `https://mcp.atlassian.com/v1/mcp/authv2`)
+   in its `.mcp.json` — no personal claude.ai connector setup required, and
+   nothing tied to any GitHub secret. If Atlassian tools aren't available or
+   calls fail with an auth error, tell the user to run `/mcp` and connect the
+   `atlassian` server (one-time OAuth in the browser, per user per machine),
+   then retry.
 
 1. **Gather the learning.** If the user already described what they learned in
    their invocation, use that. Otherwise ask: what did you just learn or
@@ -49,10 +57,12 @@ disable-model-invocation: true
 
 ## Guidelines
 - Never publish without showing the draft and getting explicit confirmation.
-- If any Rovo/Confluence call fails with a 403 or an "app not installed"
-  style error, stop and tell the user plainly that the Atlassian connector
-  needs Confluence access authorized (via claude.ai connector settings) —
-  don't retry blindly or fall back to creating something else.
+- If a call fails with "not authenticated"/similar, that's step 0 (run
+  `/mcp`, connect `atlassian`) — don't retry blindly.
+- If a call fails with a 403 "app not installed" style error even after
+  connecting, that means Confluence isn't provisioned on that Atlassian
+  site at all (separate from auth) — tell the user plainly and stop,
+  don't fall back to creating something else.
 - Prefer reusing one parent "Learnings" page per space across calls over
   scattering many unrelated top-level pages, when the user doesn't have a
   strong preference.
