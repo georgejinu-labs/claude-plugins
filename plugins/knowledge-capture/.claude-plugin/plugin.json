@@ -1,8 +1,8 @@
 {
   "name": "knowledge-capture",
   "displayName": "Knowledge Capture",
-  "version": "1.0.0",
-  "description": "Capture things you just learned while coding and publish them to Confluence via the Atlassian Rovo connector, so you can find them again later.",
+  "version": "1.1.0",
+  "description": "Capture things you just learned while coding and publish them to Confluence via a bundled Atlassian remote MCP server, so you can find them again later.",
   "author": {
     "name": "georgejinu",
     "url": "https://github.com/georgejinu"
